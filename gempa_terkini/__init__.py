@@ -1,3 +1,7 @@
+import requests
+from bs4 import BeautifulSoup
+
+
 def ekstraksi_data():
     '''
     tanggal: 13 Maret 2024
@@ -9,14 +13,20 @@ def ekstraksi_data():
     keterangan: tidak berpotensi TSUNAMI
     :return:
     '''
+    content = requests.get('https://bmkg.go.id')
+    print(content.status_code)
+
+    #soup = BeautifulSoup(content)
+    #print(soup.prettify())
+
     hasil = dict()
-    hasil['tanggal']= '13 Maret 2024'
-    hasil['waktu']= '23:39:21 WIB'
-    hasil['magnitudo']= 5.2
-    hasil['kedalaman']= '182 km'
-    hasil['lokasi']= {'ls':6.58, 'bt':129.99}
-    hasil['pusat_gempa']= '212 km Barat Laut TANIMBAR'
-    hasil['keterangan']= 'tidak berpotensi TSUNAMI'
+    hasil['tanggal'] = '13 Maret 2024'
+    hasil['waktu'] = '23:39:21 WIB'
+    hasil['magnitudo'] = 5.2
+    hasil['kedalaman'] = '182 km'
+    hasil['lokasi'] = {'ls': 6.58, 'bt': 129.99}
+    hasil['pusat_gempa'] = '212 km Barat Laut TANIMBAR'
+    hasil['keterangan'] = 'tidak berpotensi TSUNAMI'
     return hasil
 
 
@@ -29,3 +39,8 @@ def tampilkan_data(result):
     print(f"Kedalaman {result['kedalaman']}")
     print(f"Pusat Gempa {result['pusat_gempa']}")
     print(f"Keterangan {result['keterangan']}")
+
+
+if __name__ == '__main__':
+    print ('Ini adalah package gempa_terkini')
+    print ('Hai')

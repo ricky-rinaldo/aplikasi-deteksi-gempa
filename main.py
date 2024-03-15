@@ -1,6 +1,7 @@
 '''
 Aplikasi deteksi gempa
 MODULARISASI dengan FUNCTION
+MODULARISASI dengan PACKAGE
 '''
 import gempa_terkini
 
